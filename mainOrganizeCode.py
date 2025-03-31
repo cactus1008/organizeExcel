@@ -1,3 +1,6 @@
+# Annie Jaynes, Blake Pead, Joaquin Elizalde, Michael Jones, Becca Braatz
+# This program cleans up some data from an Excel workbook by reformatting and summarizing the data.
+
 import openpyxl
 from openpyxl import Workbook
 from openpyxl.styles import Font
@@ -35,6 +38,9 @@ for row in currSheet.iter_rows(min_row=2,values_only=True):
 # Creates a bold font
 f1 = Font(bold=True)
 
+# Removes the original 'Sheet' sheet
+newWorkbook.remove(newWorkbook['Sheet'])
+
 # Loops through each of our sheets that we have created
 for sheet in newWorkbook:
     # Creates each of our summary titles
@@ -60,17 +66,14 @@ for sheet in newWorkbook:
     for cell in sheet['A1:G1'][0]:
         cell.font = f1
 
-    # Adjust width of columns
-    sheet.column_dimensions["A"].width = len(sheet["A1"]) + 5
-    sheet.column_dimensions["B"].width = len(sheet["B1"]) + 5
-    sheet.column_dimensions["C"].width = len(sheet["C1"]) + 5
-    sheet.column_dimensions["D"].width = len(sheet["D1"]) + 5
-    sheet.column_dimensions["E"].width = len(sheet["E1"]) + 5
-    sheet.column_dimensions["F"].width = len(sheet["F1"]) + 5
-    sheet.column_dimensions["G"].width = len(sheet["G1"]) + 5
+    # Adjusts width of columns
+    sheet.column_dimensions["A"].width = len(sheet["A1"].value) + 5
+    sheet.column_dimensions["B"].width = len(sheet["B1"].value) + 5
+    sheet.column_dimensions["C"].width = len(sheet["C1"].value) + 5
+    sheet.column_dimensions["D"].width = len(sheet["D1"].value) + 5
+    sheet.column_dimensions["F"].width = len(sheet["F1"].value) + 5
+    sheet.column_dimensions["G"].width = len(sheet["G1"].value) + 5
 
-# Removes the original 'Sheet' sheet
-newWorkbook.remove(newWorkbook['Sheet'])
 
 # Save our organized data
 newWorkbook.save(filename='filename.xlsx')
