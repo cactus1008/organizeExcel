@@ -45,6 +45,8 @@ for sheet in newWorkbook:
     for cell in sheet['A1:G1'][0]:
         cell.font = f1
 
+    # Add filter to each of the first four columns in each sheet
+    sheet.auto_filter.ref = f"A1:D{lastRow}"
 
 newWorkbook.remove(newWorkbook['Sheet'])
 
