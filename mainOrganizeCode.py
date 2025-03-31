@@ -64,7 +64,7 @@ for sheet in newWorkbook:
 newWorkbook.remove(newWorkbook['Sheet'])
 
 # Save our organized data
-newWorkbook.save(filename='CleanData.xlsx')
+newWorkbook.save(filename='filename.xlsx')
 
 # Closes both workbooks
 myWorkbook.close()
