@@ -70,13 +70,12 @@ for sheet in newWorkbook:
     sheet.auto_filter.ref = f"A1:D{lastRow}"
 
     # Adjust width of columns
-    sheet.column_dimensions["A"].width = len(sheet["A1"]) + 5
-    sheet.column_dimensions["B"].width = len(sheet["B1"]) + 5
-    sheet.column_dimensions["C"].width = len(sheet["C1"]) + 5
-    sheet.column_dimensions["D"].width = len(sheet["D1"]) + 5
-    sheet.column_dimensions["E"].width = len(sheet["E1"]) + 5
-    sheet.column_dimensions["F"].width = len(sheet["F1"]) + 5
-    sheet.column_dimensions["G"].width = len(sheet["G1"]) + 5
+    sheet.column_dimensions["A"].width = len(sheet["A1"].value) + 5
+    sheet.column_dimensions["B"].width = len(sheet["B1"].value) + 5
+    sheet.column_dimensions["C"].width = len(sheet["C1"].value) + 5
+    sheet.column_dimensions["D"].width = len(sheet["D1"].value) + 5
+    sheet.column_dimensions["F"].width = len(sheet["F1"].value) + 5
+    sheet.column_dimensions["G"].width = len(sheet["G1"].value) + 5
 
 # Removes the original 'Sheet' sheet
 newWorkbook.remove(newWorkbook['Sheet'])
