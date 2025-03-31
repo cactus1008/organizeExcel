@@ -60,6 +60,10 @@ for sheet in newWorkbook:
     for cell in sheet['A1:G1'][0]:
         cell.font = f1
 
+
+    # Add filter to each of the first four columns in each sheet
+    sheet.auto_filter.ref = f"A1:D{lastRow}"
+
     # Adjust width of columns
     sheet.column_dimensions["A"].width = len(sheet["A1"]) + 5
     sheet.column_dimensions["B"].width = len(sheet["B1"]) + 5
@@ -68,6 +72,7 @@ for sheet in newWorkbook:
     sheet.column_dimensions["E"].width = len(sheet["E1"]) + 5
     sheet.column_dimensions["F"].width = len(sheet["F1"]) + 5
     sheet.column_dimensions["G"].width = len(sheet["G1"]) + 5
+
 
 # Removes the original 'Sheet' sheet
 newWorkbook.remove(newWorkbook['Sheet'])
