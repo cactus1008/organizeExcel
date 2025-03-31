@@ -45,6 +45,15 @@ for sheet in newWorkbook:
     for cell in sheet['A1:G1'][0]:
         cell.font = f1
 
+    # Adjust width of columns
+    sheet.column_dimensions["A"].width = len(sheet["A1"]) + 5
+    sheet.column_dimensions["B"].width = len(sheet["B1"]) + 5
+    sheet.column_dimensions["C"].width = len(sheet["C1"]) + 5
+    sheet.column_dimensions["D"].width = len(sheet["D1"]) + 5
+    sheet.column_dimensions["E"].width = len(sheet["E1"]) + 5
+    sheet.column_dimensions["F"].width = len(sheet["F1"]) + 5
+    sheet.column_dimensions["G"].width = len(sheet["G1"]) + 5
+
 
 newWorkbook.remove(newWorkbook['Sheet'])
 
