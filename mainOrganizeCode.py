@@ -48,7 +48,7 @@ for sheet in newWorkbook:
 
 newWorkbook.remove(newWorkbook['Sheet'])
 
-newWorkbook.save(filename='CleanData.xlsx')
+newWorkbook.save(filename='filename.xlsx')
 
 myWorkbook.close()
 newWorkbook.close()
