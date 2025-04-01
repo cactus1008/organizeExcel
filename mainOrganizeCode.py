@@ -77,8 +77,6 @@ for sheet in newWorkbook:
     sheet.column_dimensions["F"].width = len(sheet["F1"].value) + 5
     sheet.column_dimensions["G"].width = len(sheet["G1"].value) + 5
 
-# Removes the original 'Sheet' sheet
-newWorkbook.remove(newWorkbook['Sheet'])
 
 # Save our organized data
 newWorkbook.save(filename='filename.xlsx')
