@@ -19,7 +19,7 @@ current_class = 'None'
 for row in currSheet.iter_rows(min_row=2,values_only=True):
 
     # Check to see if we are working with the right class for the student
-    if row[0] != current_class:
+    if row[0] not in newWorkbook.sheetnames:
         current_class = row[0]
 
         # Create new worksheets for each class
@@ -49,7 +49,7 @@ for sheet in newWorkbook:
     sheet['F3'] = 'Lowest Grade'
     sheet['F4'] = 'Mean Grade'
     sheet['F5'] = 'Median Grade'
-    sheet['F6'] = 'Students In Class'
+    sheet['F6'] = 'Number of Students'
 
     # Gets the range of all of the data that we have created
     lastRow = sheet.max_row
